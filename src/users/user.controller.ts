@@ -15,7 +15,7 @@ const createUser = async (req: Request, res: Response, next: any) => {
   }
 };
 
-const updateUser = async (req: any, res: Response) => {
+const updateUser = async (req: any, res: Response, next: any) => {
   try {
     const userService = new UserService();
     const updated = await userService.updateUser(
@@ -24,64 +24,76 @@ const updateUser = async (req: any, res: Response) => {
       req.user
     );
     res.send(updated);
-  } catch (e) {
-    res.status(500);
-    res.send({ e });
+  } catch (e: any) {
+    const err: ApiError = new Error();
+    err.statusCode = 400;
+    err.message = e.message;
+    next(err);
   }
 };
 
-const activeUser = async (req: Request, res: Response) => {
+const activeUser = async (req: Request, res: Response, next: any) => {
   try {
     const userService = new UserService();
     const updated = await userService.activeUser(req.params.uuid);
     res.send(updated);
-  } catch (e) {
-    res.status(500);
-    res.send({ e });
+  } catch (e: any) {
+    const err: ApiError = new Error();
+    err.statusCode = 400;
+    err.message = e.message;
+    next(err);
   }
 };
 
-const deactiveUser = async (req: Request, res: Response) => {
+const deactiveUser = async (req: Request, res: Response, next: any) => {
   try {
     const userService = new UserService();
     const updated = await userService.deactiveUser(req.params.uuid);
     res.send(updated);
-  } catch (e) {
-    res.status(500);
-    res.send({ e });
+  } catch (e: any) {
+    const err: ApiError = new Error();
+    err.statusCode = 400;
+    err.message = e.message;
+    next(err);
   }
 };
 
-const deleteUser = async (req: Request, res: Response) => {
+const deleteUser = async (req: Request, res: Response, next: any) => {
   try {
     const userService = new UserService();
     const deleted = await userService.deleteUser(req.params.uuid);
     res.send(deleted);
-  } catch (e) {
-    res.status(500);
-    res.send({ e });
+  } catch (e: any) {
+    const err: ApiError = new Error();
+    err.statusCode = 400;
+    err.message = e.message;
+    next(err);
   }
 };
 
-const listUsers = async (req: Request, res: Response) => {
+const listUsers = async (req: Request, res: Response, next: any) => {
   try {
     const userService = new UserService();
     const users = await userService.listUsers();
     res.send(users);
-  } catch (e) {
-    res.status(500);
-    res.send({ e });
+  } catch (e: any) {
+    const err: ApiError = new Error();
+    err.statusCode = 400;
+    err.message = e.message;
+    next(err);
   }
 };
 
-const getUser = async (req: Request, res: Response) => {
+const getUser = async (req: Request, res: Response, next: any) => {
   try {
     const userService = new UserService();
     const user = await userService.getUser(req.params.uuid);
     res.send(user);
-  } catch (e) {
-    res.status(500);
-    res.send({ e });
+  } catch (e: any) {
+    const err: ApiError = new Error();
+    err.statusCode = 400;
+    err.message = e.message;
+    next(err);
   }
 };
 

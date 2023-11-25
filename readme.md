@@ -29,3 +29,32 @@ If you are in development mode:
 ```
 npm run dev
 ```
+
+## Tests
+
+Run once of the following commands for make tests.
+
+Run all tests
+
+```
+npm run test
+```
+
+Run test with coverage
+
+```
+npm run test:cov
+```
+
+Run test in watch mode
+
+```
+npm run test:watch
+```
+
+## TODOs
+
+- [ ] Build a pipeline to run test before commits
+- [ ] Implements JWT decode in each endpoint
+- [ ] Implements RBAC system
+- [ ] Compelte e2e tests
