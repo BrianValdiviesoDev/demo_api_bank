@@ -51,10 +51,3 @@ Run test in watch mode
 ```
 npm run test:watch
 ```
-
-## TODOs
-
-- [ ] Build a pipeline to run test before commits
-- [ ] Implements JWT decode in each endpoint
-- [ ] Implements RBAC system
-- [ ] Compelte e2e tests
